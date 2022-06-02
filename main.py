@@ -32,6 +32,24 @@ def main():
 
     else:
 
-        print("Sorry, but the directory that you have entered does not exist.")
+        print("Sorry, but the directory that you have entered does not exist. This directory will now be created.")
+
+        os.makedirs(directory)
+
+        writeFile = open(os.path.join(directory, filename), 'w')
+
+        writeFile.write(name + ', ' + address + ', ' + phone_number + '\n')
+
+        writeFile.close()
+
+        print("The info you have provided is as follows: \n")
+
+        readFile = open(os.path.join(directory, filename), 'r')
+
+        for line in readFile:
+            print(line)
+
+        readFile.close()
+
 
 main()
